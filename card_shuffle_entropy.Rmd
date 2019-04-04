@@ -315,11 +315,13 @@ ggplot(output, aes(x = iteration, y = entropy)) +
 ggplot(output, aes(group = iteration, y = entropy)) +
   geom_boxplot()
 
+ggsave("boxplot.png")
+
 ggplot(output, aes(x = as_factor(iteration), y = entropy)) +
   geom_violin()
 
-ggplot(output, aes(x = as.factor(iteration), y = entropy)) +
-  geom_violin()
+ggsave("violinplot.png")
+
 
 
 # individual lines
