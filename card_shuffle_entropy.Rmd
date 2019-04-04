@@ -10,6 +10,8 @@ CrossValidated:
 https://stats.stackexchange.com/questions/78591/correlation-between-two-decks-of-cards
 
 
+Information entropy ["is the average rate at which information is produced by a stochastic source of data."](https://en.wikipedia.org/wiki/Entropy_(information_theory))
+
 
 ## original
 
@@ -107,6 +109,7 @@ qplot(startorder, shuffleorder, data=shuffletracker, color=iteration,
 ```{r}
 
 library(ggplot2)
+library(forcats)
 
 
 # set random seed
@@ -301,15 +304,24 @@ output <- shuffle_fun(1000)
 ### plots
 
 ```{r}
+
 library(ggplot2)
 library(forcats)
 library(dplyr)
+
 ggplot(output, aes(x = iteration, y = entropy)) +
   geom_point()
-ggplot(output, aes(group = as_factor(iteration), y = entropy)) +
+
+ggplot(output, aes(group = iteration, y = entropy)) +
   geom_boxplot()
+
 ggplot(output, aes(x = as_factor(iteration), y = entropy)) +
   geom_violin()
+
+ggplot(output, aes(x = as.factor(iteration), y = entropy)) +
+  geom_violin()
+
+
 # individual lines
 #ggplot(output) +
 #  geom_line(aes(x = iteration, y = entropy, colour = as_factor(runnum)))
