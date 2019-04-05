@@ -1,6 +1,8 @@
 ---
 title: "Card shuffling"
-output: html_notebook
+output:
+  html_document:
+    df_print: paged
 ---
 
 Blog post:
@@ -15,7 +17,7 @@ Information entropy ["is the average rate at which information is produced by a 
 
 ## original
 
-```{r}
+```{r eval = FALSE}
 library(ggplot2)
 # Number of cards
 ncard <- 52 
@@ -106,7 +108,7 @@ qplot(startorder, shuffleorder, data=shuffletracker, color=iteration,
 ## Revised: with multiple runs through the process
 
 
-```{r}
+```{r eval = FALSE}
 
 library(ggplot2)
 library(forcats)
